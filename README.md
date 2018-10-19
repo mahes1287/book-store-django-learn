@@ -1,7 +1,7 @@
 # Django-book-store
 Django application. Can create, save and update books information. 
 
-Test task description
+Project description
 
 1. Create base Django project for book store. On the main page you have to see list of
 books with the following information: book title, authors info, ISBN (International

@@ -1,0 +1,23 @@
+{% extends 'books/base.html'%}
+{% load i18n %}
+{% block content %}
+    <div>
+        <h3 align="center">{% blocktrans with id=book.id %} Book {{ id }} {% endblocktrans %}</h3>
+    </div>
+    <div>
+        <table id="books">
+          <tr>
+            <th>Book title</th>
+            <th>Authors</th>
+            <th>ISBN</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>{{ book.book_title }}</td>
+            <td>{{ book.authors_info }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.price }} $</td>
+          </tr>
+        </table>
+    </div>
+{% endblock content %}

@@ -1,11 +1,7 @@
 from django.urls import path, include
-from .views import PublisherListView, PublisherCreateView, \
-     PublisherUpdateView, PublisherDeleteView, \
-         PublisherDetailView, 
-         
+from .views import PublisherListView, PublisherCreateView, PublisherUpdateView, PublisherDeleteView, PublisherDetailView
 
 from .models import Publisher
-
 
 app_name = 'publisher'
 

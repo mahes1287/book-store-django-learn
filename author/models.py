@@ -3,7 +3,6 @@ from autoslug import AutoSlugField
 from django.urls import reverse
 from django.db.models import Q
 from django.utils.text import slugify
-from author.models import Author
 
 
 class AuthorManager(models.Manager):

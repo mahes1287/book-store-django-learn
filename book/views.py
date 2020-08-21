@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from .models import Book, Cost
 from django.views.generic import ListView, DetailView, DeleteView
 from django.views.generic.edit import CreateView, UpdateView
-from .forms import BookForm, #CostForm
+from .forms import BookForm, CostForm
 
 
 class BookListView(ListView):
@@ -41,7 +41,7 @@ class BookDeleteView(DeleteView):
 
  # cost related viwes
 
- class CostListView(ListView):
+class CostListView(ListView):
     model = Cost
     context_object_name = 'cost_list'
     template_name = 'cost/cost_list.html'

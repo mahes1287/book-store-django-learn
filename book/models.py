@@ -19,8 +19,56 @@ class BookManager(models.Manager):
         return qs
 
 
+class Genre(models.Model):
+	name = models.CharField(max_length = 100)
+	slug = AutoSlugField(unique = True, populate_from='name', db_index=True, editable = True, null=True, blank=True)
+
+	created_by = models.TextField(null=True, blank=True) # User related
+	updated_by = models.TextField(null=True, blank=True) # User related
+
+	created_on = models.DateTimeField(auto_now_add=True)
+	last_updated_on = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		pass
+
+	def __str__(self):
+		return str(self.name)
+
+	def get_absolute_url(self):
+		return reverse("book:genre_detail", args=[str(self.slug)])
+
+
+	def get_update_url(self):
+		return reverse("book:genre_update", args=[str(self.slug)])
+
+class Language(models.Model):
+	name = models.CharField(max_length = 100)
+	slug = AutoSlugField(unique = True, populate_from='name', db_index=True, editable = True, null=True, blank=True)
+
+	created_by = models.TextField(null=True, blank=True) # User related
+	updated_by = models.TextField(null=True, blank=True) # User related
+
+	created_on = models.DateTimeField(auto_now_add=True)
+	last_updated_on = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		pass
+
+	def __str__(self):
+		return str(self.name)
+
+	def get_absolute_url(self):
+		return reverse("book:language_detail", args=[str(self.slug)])
+
+
+	def get_update_url(self):
+		return reverse("book:language_update", args=[str(self.slug)])
+
 class Book(models.Model):
 	name = models.CharField(max_length = 100)
+	summary = models.CharField(max_length = 300, null=True, blank=True)
+	language = models.CharField(max_length = 100, null=True, blank=True)
 	isbn = models.CharField(max_length = 20)
 	pages = models.IntegerField()
 	author = models.ForeignKey(Author, related_name='bookAuthor', on_delete=models.CASCADE, null=True, blank=True)
@@ -49,7 +97,7 @@ class Book(models.Model):
 		return reverse("book:book_update", args=[str(self.slug)])
 
 class Cost(models.Model):
-	publisher = models.ForeignKey(Publisher, related_name='costPublisher', on_delete=models.CASCADE, null=True, blank=True)
+	book = models.ForeignKey(Book, related_name='costBook', on_delete=models.CASCADE, null=True, blank=True)
 	cost = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
 	class Meta:
@@ -59,8 +107,8 @@ class Cost(models.Model):
 		return str(self.cost)
 
 	def get_absolute_url(self):
-		return reverse("publisher:cost_detail", args=[str(self.slug)])
+		return reverse("book:cost_detail", args=[str(self.slug)])
 
 
 	def get_update_url(self):
-		return reverse("publisher:cost_update", args=[str(self.slug)])
+		return reverse("book:cost_update", args=[str(self.slug)])

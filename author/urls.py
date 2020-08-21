@@ -1,11 +1,6 @@
 from django.urls import path, include
-from .views import AuthorListView, AuthorCreateView, \
-     AuthorUpdateView, AuthorDeleteView, \
-         AuthorDetailView, 
-         
-
+from .views import AuthorListView, AuthorCreateView, AuthorUpdateView, AuthorDeleteView, AuthorDetailView
 from .models import Author
-
 
 app_name = 'author'
 

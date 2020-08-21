@@ -1,15 +1,7 @@
 from django.urls import path, include
-from .views import BookListView, BookCreateView, \
-     BookUpdateView, BookDeleteView, \
-         BookDetailView, 
-
-from .views import CostListView, CostCreateView, \
-     CostUpdateView, CostDeleteView, \
-         CostDetailView, 
-         
-
+from .views import BookListView, BookCreateView, BookUpdateView, BookDeleteView, BookDetailView 
+from .views import CostListView, CostCreateView, CostUpdateView, CostDeleteView, CostDetailView
 from .models import Book, Cost
-
 
 app_name = 'book'
 
@@ -23,12 +15,12 @@ urlpatterns = [
 
 # Cost urls
 
-    path('all/', CostListView.as_view(), name='cost_list'),
-    path('detail/<slug:slug>/', CostDetailView.as_view(), name = 'cost_detail'),
+    path('cost/all/', CostListView.as_view(), name='cost_list'),
+    path('cost/detail/<slug:slug>/', CostDetailView.as_view(), name = 'cost_detail'),
 
-    path('create/', CostCreateView.as_view(), name = 'cost_create'),
-    path('update/<slug:slug>/', CostUpdateView.as_view(), name = 'cost_update'),
-    path('delete/<slug:slug>/', CostDeleteView.as_view(), name = 'cost_delete'),
+    path('cost/create/', CostCreateView.as_view(), name = 'cost_create'),
+    path('cost/update/<slug:slug>/', CostUpdateView.as_view(), name = 'cost_update'),
+    path('cost/delete/<slug:slug>/', CostDeleteView.as_view(), name = 'cost_delete'),
 
 
 ]

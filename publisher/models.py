@@ -3,7 +3,6 @@ from autoslug import AutoSlugField
 from django.urls import reverse
 from django.db.models import Q
 from django.utils.text import slugify
-from publisher.models import Publisher
 
 
 class PublisherManager(models.Manager):

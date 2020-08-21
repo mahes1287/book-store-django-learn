@@ -1,7 +1,5 @@
 # Django-book-store
 
-udhayse@gmail.com
-
 Store the Book Details:
 
 	Storing the following details associated with it.
@@ -13,6 +11,8 @@ Store the Book Details:
 				- ebook_isbn ----> to be added
 				- print_isbn ----> to be added
 			* pages
+			summary
+			language
 			* publisher  | (one to many)
 			* author 	 | (one to many)
 
@@ -35,3 +35,5 @@ Store the Book Details:
 			*  state
 			*  country
 			*  pincode
+
+genre app

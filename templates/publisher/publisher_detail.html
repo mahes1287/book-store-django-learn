@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Publisher: {{ publisher.name }}</h1>
+
+<p><strong>Address line:</strong> {{ publisher.address_line }}</p> 
+<p><strong>City:</strong> {{ publisher.city }}</p> 
+<p><strong>State:</strong> {{ publisher.state }}</p> 
+<p><strong>Country:</strong> {{ publisher.country }}</p> 
+<p><strong>Pin Code:</strong> {{ publisher.pincode }}</p> 
+{% endblock %}

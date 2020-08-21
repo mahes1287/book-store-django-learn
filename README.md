@@ -1,4 +1,11 @@
 # Django-book-store
+
+following reposiory as a base:
+ https://github.com/Bonskeeper/Django-book-store.git
+
+
+
+
 Django application. Can create, save and update books information. 
 
 Project description

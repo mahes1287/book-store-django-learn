@@ -39,35 +39,35 @@ class BookDeleteView(DeleteView):
 
 
 
-#  # cost related viwes
+ # cost related viwes
 
-#  class CostListView(ListView):
-#     model = Cost
-#     context_object_name = 'cost_list'
-#     template_name = 'cost/cost_list.html'
+ class CostListView(ListView):
+    model = Cost
+    context_object_name = 'cost_list'
+    template_name = 'cost/cost_list.html'
 
-# class CostDetailView(DetailView):
-#     model = Cost
-#     context_object_name = 'cost'
-#     template_name = 'cost/cost_detail.html'
+class CostDetailView(DetailView):
+    model = Cost
+    context_object_name = 'cost'
+    template_name = 'cost/cost_detail.html'
 
-# class CostCreateView(CreateView):
-#     model = Cost
-#     template_name = 'cost/cost_form.html'
-#     form_class = CostForm
+class CostCreateView(CreateView):
+    model = Cost
+    template_name = 'cost/cost_form.html'
+    form_class = CostForm
 
-# class CostUpdateView(UpdateView):
-#     model = Cost
-#     template_name = 'cost/cost_form.html'
-#     form_class = CostForm
+class CostUpdateView(UpdateView):
+    model = Cost
+    template_name = 'cost/cost_form.html'
+    form_class = CostForm
 
-# class CostStatusUpdateView(UpdateView):
-#     model = Cost
-#     template_name = 'cost/cost_form.html'
-#     form_class = CostForm
+class CostStatusUpdateView(UpdateView):
+    model = Cost
+    template_name = 'cost/cost_form.html'
+    form_class = CostForm
 
 
-# class CostDeleteView(DeleteView):
-#     model = Cost
-#     template_name = 'cost/cost_confirm_delete.html'
-#     success_url = reverse_lazy('cost:cost_list')
+class CostDeleteView(DeleteView):
+    model = Cost
+    template_name = 'cost/cost_confirm_delete.html'
+    success_url = reverse_lazy('cost:cost_list')

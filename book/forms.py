@@ -19,4 +19,4 @@ class CostForm(forms.ModelForm):
     class Meta:
         model = Cost
         # fields = ('__all__')
-        fields = ['cost',]
+        fields = ['book', 'cost',]

@@ -21,6 +21,7 @@ class BookManager(models.Manager):
 
 class Book(models.Model):
 	name = models.CharField(max_length = 100)
+	isbn = models.CharField(max_length = 20)
 	pages = models.IntegerField()
 	author = models.ForeignKey(Author, related_name='bookAuthor', on_delete=models.CASCADE, null=True, blank=True)
 	publisher = models.ForeignKey(Publisher, related_name='bookPublisher', on_delete=models.CASCADE, null=True, blank=True)
@@ -47,9 +48,8 @@ class Book(models.Model):
 	def get_update_url(self):
 		return reverse("book:book_update", args=[str(self.slug)])
 
-
 class Cost(models.Model):
-	book = models.ForeignKey(Book, related_name='costBook', on_delete=models.CASCADE, null=True, blank=True)
+	publisher = models.ForeignKey(Publisher, related_name='costPublisher', on_delete=models.CASCADE, null=True, blank=True)
 	cost = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
 	class Meta:
@@ -59,8 +59,8 @@ class Cost(models.Model):
 		return str(self.cost)
 
 	def get_absolute_url(self):
-		return reverse("book:cost_detail", args=[str(self.slug)])
+		return reverse("publisher:cost_detail", args=[str(self.slug)])
 
 
 	def get_update_url(self):
-		return reverse("book:cost_update", args=[str(self.slug)])
+		return reverse("publisher:cost_update", args=[str(self.slug)])

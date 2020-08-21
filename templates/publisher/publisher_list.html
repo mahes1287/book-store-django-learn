@@ -5,12 +5,14 @@
 
     <h1>List of Publishers</h1>
 
+<a href="{% url 'publisher:publisher_create' %}">Add new publisher</a>
+
     {% if publisher_list %}
     <ul>
 
       {% for publisher in publisher_list %}
       <li>
-        <a href="{{ publisher.get_absolute_url }}">{{ publisher.name }}</a> 
+        <a href="{{ publisher.get_absolute_url }}">{{ publisher.name }}</a> | <a href="{{ publisher.get_update_url }}">Update</a> | <a href="{% url 'publisher:publisher_delete' publisher.slug %}">Delete</a> 
       </li>
       {% endfor %}
 

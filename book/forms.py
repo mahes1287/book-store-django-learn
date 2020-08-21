@@ -11,7 +11,7 @@ class BookForm(forms.ModelForm):
 	class Meta:
 		model = Book
         # fields = ('__all__')
-		fields = ['name', 'pages', 'author', 'publisher',]
+		fields = ['name', 'pages', 'isbn', 'author', 'summary', 'language', 'genre', 'publisher',]
 
 
 class CostForm(forms.ModelForm):

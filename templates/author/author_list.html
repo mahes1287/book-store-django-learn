@@ -3,13 +3,13 @@
 {% block content %}
 
     <h1>List of Authors </h1>
-
+<a href="{% url 'author:author_create' %}">Add new Author</a>
     {% if author_list %}
     <ul>
 
       {% for author in author_list %}
       <li>
-        <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
+        <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> | <a href="{{ author.get_update_url }}">Update</a> | <a href="{% url 'author:author_delete' author.slug %}">Delete</a> 
       </li>
       {% endfor %}
 

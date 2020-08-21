@@ -11,8 +11,9 @@ Store the Book Details:
 				- ebook_isbn ----> to be added
 				- print_isbn ----> to be added
 			* pages
-			summary
-			language
+			* summary        -----> need to be connected
+			* language		-----> need to be connected	
+			* genre			-----> need to be connected
 			* publisher  | (one to many)
 			* author 	 | (one to many)
 
@@ -21,6 +22,8 @@ Store the Book Details:
 		    * cost
 		    	- ebook cost ----> to be added
 		    	- print version cost ----> to be added
+		#Language -----> need to be implemented
+		#Genre    -----> need to be implemented
 
 	- Author app
 		#Author
@@ -35,5 +38,3 @@ Store the Book Details:
 			*  state
 			*  country
 			*  pincode
-
-genre app

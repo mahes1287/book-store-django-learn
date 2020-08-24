@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'book:book_create' %}">Add new book</a>  ||  
+
+<a href="{% url 'book:language_list' %}">Language list</a> | <a href="{% url 'book:language_create' %}">Add new language</a>  ||   
+
+<a href="{% url 'book:genre_list' %}">Genre List</a> | <a href="{% url 'book:genre_create' %}">Add new Genre</a>
+
+
+
+<h1>Language: {{ language }}</h1>
+<h2><a href="{{ language.get_update_url }}">Update</a></h2>
+    
+{% endblock %}

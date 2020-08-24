@@ -2,27 +2,24 @@
 
 {% block content %}
 
-    <h1>List of Books</h1>
-
 <a href="{% url 'book:book_create' %}">Add new book</a>  ||  
 
 <a href="{% url 'book:language_list' %}">Language list</a> | <a href="{% url 'book:language_create' %}">Add new language</a>  ||   
 
 <a href="{% url 'book:genre_list' %}">Genre List</a> | <a href="{% url 'book:genre_create' %}">Add new Genre</a>
 
-    {% if book_list %}
+    {% if genre_list %}
     <ul>
 
-      {% for book in book_list %}
+      {% for genre in genre_list %}
       <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.name }}</a> |  ({{book.author}}) | <a href="{{ book.get_update_url }}">Update</a> | <a href="{% url 'book:book_delete' book.slug %}">Delete</a> 
+        <a href="{{ genre.get_absolute_url }}">{{ genre }}</a> |  <a href="{{ genre.get_update_url }}">Update</a> | <a href="{% url 'book:genre_delete' genre.slug %}">Delete</a> 
       </li>
       {% endfor %}
 
     </ul>
 
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>There are no languages.</p>
     {% endif %} 
-    
 {% endblock %}

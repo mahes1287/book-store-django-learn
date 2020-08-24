@@ -66,10 +66,19 @@ class Language(models.Model):
 		return reverse("book:language_update", args=[str(self.slug)])
 
 class Book(models.Model):
-	name = models.CharField(max_length = 100)
+	class BookTypeChoices(models.TextChoices):
+		EBOOK = 'EB', ('e-book')
+		PAPERBACK = 'PB', ('Paperback')
+		HARDBOUND = 'HB', ('Hardbound')
+
+	title = models.CharField(max_length = 100)
 	summary = models.CharField(max_length = 300, null=True, blank=True)
-	language = models.CharField(max_length = 100, null=True, blank=True)
-	genre = models.CharField(max_length = 100, null=True, blank=True)
+	language = models.ForeignKey(Language, related_name='bookLanguage', on_delete=models.CASCADE, null=True, blank=True)
+	genre = models.ForeignKey(Genre, related_name='bookGenre', on_delete=models.CASCADE, null=True, blank=True)
+	book_type = models.CharField(max_length=2,
+                            choices=BookTypeChoices.choices,
+                            default=BookTypeChoices.PAPERBACK,) 
+
 	isbn = models.CharField(max_length = 20)
 	pages = models.IntegerField()
 	author = models.ForeignKey(Author, related_name='bookAuthor', on_delete=models.CASCADE, null=True, blank=True)

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'publisher:publisher_create' %}">Add new publisher</a> ||  
+<a href="{% url 'publisher:country_list' %}">Country list</a> |  <a href="{% url 'publisher:country_create' %}">Add Country</a> || 
+<a href="{% url 'publisher:state_list' %}">State list</a>  |  <a href="{% url 'publisher:state_create' %}">Add state</a> || 
+<a href="{% url 'publisher:district_list' %}">District list</a> |<a href="{% url 'publisher:district_create' %}">Add District</a> <br>
+
+
+
+<h1>District: {{ district }}</h1>
+<h2><a href="{{ district.get_update_url }}">Update</a></h2>
+
+<p><strong>State:</strong> {{ district.state }}</p> 
+<p><strong>District:</strong> {{ district.district }}</p> 
+    
+{% endblock %}

@@ -6,25 +6,34 @@ Store the Book Details:
 		Hint: # indicates Model name under the particular app
 	- Book app
 		#Book
-			* name
+			* title
+			* book_type
+				-ebook
+				-paperback
+				-hardbound
 			* isbn
-				- ebook_isbn ----> to be added
-				- print_isbn ----> to be added
+				- ebook_isbn ----> to be added as model formset in form... should be dymnamically updated as per type in form
+				- print_isbn ----> to be added as model formset in form... should be dymnamically updated
 			* pages
-			* summary        -----> need to be connected
-			* language		-----> need to be connected	
-			* genre			-----> need to be connected
+			* summary        
+			* language			
+			* genre			
 			* publisher  | (one to many)
 			* author 	 | (one to many)
 
 		#Cost
 		    * book  	 | (one to many)
 		    * cost
-		    	- ebook cost ----> to be added
-		    	- print version cost ----> to be added
-		#Language -----> need to be implemented
-		#Genre    -----> need to be implemented
+		    	- ebook cost ----> to be added | should be auto populated as per selection in isbn type
+		    	- paperback cost ----> to be added
+		    	- hardbound cost ----> to be added
+		    	
+		#Language 
+			* name
+		#Genre    
+			* name
 
+			
 	- Author app
 		#Author
 			*  name

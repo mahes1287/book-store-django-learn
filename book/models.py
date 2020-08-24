@@ -74,16 +74,17 @@ class Book(models.Model):
 	title = models.CharField(max_length = 100)
 	summary = models.CharField(max_length = 300, null=True, blank=True)
 	language = models.ForeignKey(Language, related_name='bookLanguage', on_delete=models.CASCADE, null=True, blank=True)
-	genre = models.ForeignKey(Genre, related_name='bookGenre', on_delete=models.CASCADE, null=True, blank=True)
+	genre = models.ManyToManyField(Genre, related_name='bookGenre')
 	book_type = models.CharField(max_length=2,
                             choices=BookTypeChoices.choices,
                             default=BookTypeChoices.PAPERBACK,) 
 
 	isbn = models.CharField(max_length = 20)
 	pages = models.IntegerField()
-	author = models.ForeignKey(Author, related_name='bookAuthor', on_delete=models.CASCADE, null=True, blank=True)
+	# author = models.ForeignKey(Author, related_name='bookAuthor', on_delete=models.CASCADE, null=True, blank=True)
+	author = models.ManyToManyField(Author)
 	publisher = models.ForeignKey(Publisher, related_name='bookPublisher', on_delete=models.CASCADE, null=True, blank=True)
-	slug = AutoSlugField(unique = True, populate_from='name', db_index=True, editable = True, null=True, blank=True)
+	slug = AutoSlugField(unique = True, populate_from='title', db_index=True, editable = True, null=True, blank=True)
 
 	created_by = models.TextField(null=True, blank=True) # User related
 	updated_by = models.TextField(null=True, blank=True) # User related
@@ -97,7 +98,7 @@ class Book(models.Model):
 		pass
 
 	def __str__(self):
-		return str(self.name)
+		return str(self.title)
 
 	def get_absolute_url(self):
 		return reverse("book:book_detail", args=[str(self.slug)])

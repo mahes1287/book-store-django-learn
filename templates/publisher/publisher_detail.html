@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<h1>Publisher: {{ publisher.name }}</h1>
-<h1>{{ publisher.name }}</h1> <h2><a href="{{ publisher.get_update_url }}">Update</a></h2>
+<h1>Publisher: {{ publisher.name }} <a class= "btn btn-primary" href="{{ publisher.get_update_url }}">Update</a> </h1>
 
 <p><strong>Address line:</strong> {{ publisher.address_line }}</p> 
 <p><strong>City:</strong> {{ publisher.city }}</p> 

@@ -40,10 +40,23 @@ Store the Book Details:
 			*  country
 
 	- Publisher app
+		#District
+			* state
+			* district
+		#State
+			* country
+			* state
+		#Country
+			* country
+			* code
+			* phone_code
+			* currency_code
+			* currency_symbol			
 		#Publisher
 			*  name
 			*  address_line
 			*  city
+			*  district
 			*  state
 			*  country
 			*  pincode

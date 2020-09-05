@@ -17,9 +17,9 @@ Store the Book Details:
 			* pages
 			* summary        
 			* language			
-			* genre			
+			* genre		 | (many to many)		
+			* author 	 | (many to many)
 			* publisher  | (one to many)
-			* author 	 | (one to many)
 
 		#Cost
 		    * book  	 | (one to many)

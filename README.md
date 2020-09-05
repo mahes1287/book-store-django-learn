@@ -1,13 +1,15 @@
 # Django-book-store
 
-Store the Book Details:
+## Store the Book Details:
 
 	Storing the following details associated with it.
 		Hint: 
 			- Name of the app
 			# indicates Model name under the particular app
-
-Features to be implemented:
+		Admin Login credentials:
+			username : admin
+			password : admin123
+## Features to be implemented:
 	* Simple Search
 	* Search result
 	* Filtering the Search result
